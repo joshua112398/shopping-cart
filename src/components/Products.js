@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Product from "./Product";
 
 function Products({ categoryId }) {
 
@@ -15,7 +16,7 @@ function Products({ categoryId }) {
 
     const fetchProducts = async function fetchProducts() {
       try {
-        const response = await fetch(`https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=${categoryId}&limit=10&country=US&sort=freshness&currency=USD&sizeSchema=US&brand=53&lang=en-US`, options)
+        const response = await fetch(`https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=${categoryId}&limit=30&country=US&sort=freshness&currency=USD&sizeSchema=US&brand=53&lang=en-US`, options)
         const data = await response.json();
         setProducts(data.products);
         console.log(data.products);
@@ -34,7 +35,7 @@ function Products({ categoryId }) {
     let inc = 0;
     return products.map((product) => {
       inc += 1;
-      return <p key={inc}>{product.name}</p>;
+      return <Product key={inc} name={product.name} imageUrl={product.imageUrl} price={product.price.current.text}/>;
     });
   }
 

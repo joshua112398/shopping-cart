@@ -13,12 +13,12 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />}> 
-          <Route path='/shop/tops' element={<Products />} />
-          <Route path='/shop/jackets' element={<Products />} />
-          <Route path='/shop/pants' element={<Products />} />
-          <Route path='/shop/shorts' element={<Products />} />
-          <Route path='/shop/underwear' element={<Products />} />
-          <Route path='/shop/swimwear' element={<Products />} />
+          <Route path='/shop/tops' element={<Products categoryId={7616} />} />
+          <Route path='/shop/jackets' element={<Products categoryId={3606} />} />
+          <Route path='/shop/pants' element={<Products categoryId={4910} />} />
+          <Route path='/shop/shorts' element={<Products categoryId={7078} />} />
+          <Route path='/shop/underwear' element={<Products categoryId={20317} />} />
+          <Route path='/shop/swimwear' element={<Products categoryId={13210} />} />
         </Route>
       </Routes>
     </BrowserRouter>
