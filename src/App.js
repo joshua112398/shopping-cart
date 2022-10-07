@@ -9,7 +9,6 @@ function App() {
   return (
     <BrowserRouter>
       <Nav />
-      <Products categoryId={7078}/>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />}> 

@@ -10,7 +10,7 @@ describe("Products", () => {
     originalFetch = global.fetch;
 
     const mockData = {
-      products: [{ name: 'ProductOne', }],
+      products: [{ name: 'ProductOne', imageUrl: 'Url', price: { current: { text: '500' } }}],
     };
 
     global.fetch = jest.fn(() => {
@@ -37,13 +37,17 @@ describe("Products", () => {
   it("calls fetch once with the correct URL", async () => {
     render(<Products categoryId={'7616'}/>);
     await act(async () => {
-      expect(fetch).toHaveBeenCalledWith('https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=7616&limit=10&country=US&sort=freshness&currency=USD&sizeSchema=US&brand=53&lang=en-US', options);
+      expect(fetch).toHaveBeenCalledWith('https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=170&categoryId=7616&limit=30&country=US&sort=freshness&currency=USD&sizeSchema=US&brand=53&lang=en-US', options);
     });
   });
 
-  it("sets state to contain correct product names", async () => {
+  it("sets state to display fetched product info", async () => {
     render(<Products categoryId={'7616'}/>);
-    const productsNode = await screen.findByText('ProductOne');
-    expect(productsNode.textContent).toBe('ProductOne');
+    const productName = await screen.findByText('ProductOne');
+    const productImg = await screen.findByAltText('ProductOne');
+    const productPrice = await screen.findByText('500');
+    expect(productName.textContent).toBe('ProductOne');
+    expect(productImg.src).toBe('https://url/');
+    expect(productPrice.textContent).toBe('500');
   });
 });

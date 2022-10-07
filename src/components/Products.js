@@ -16,7 +16,7 @@ function Products({ categoryId }) {
 
     const fetchProducts = async function fetchProducts() {
       try {
-        const response = await fetch(`https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=${categoryId}&limit=30&country=US&sort=freshness&currency=USD&sizeSchema=US&brand=53&lang=en-US`, options)
+        const response = await fetch(`https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=170&categoryId=${categoryId}&limit=30&country=US&sort=freshness&currency=USD&sizeSchema=US&brand=53&lang=en-US`, options)
         const data = await response.json();
         setProducts(data.products);
         console.log(data.products);
@@ -41,7 +41,6 @@ function Products({ categoryId }) {
 
   return (
     <div>
-      Tests
       {getProductNames()}
     </div>
   );
