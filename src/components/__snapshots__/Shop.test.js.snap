@@ -1,105 +1,53 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Shop All links show up on screen 1`] = `
-<div>
-  <div
-    class="shop"
-  >
-    <div>
-      <ul>
-        <li>
-          <a
-            href="tops"
-          >
-            Tops
-          </a>
-        </li>
-        <li>
-          <a
-            href="jackets"
-          >
-            Jackets and Coats
-          </a>
-        </li>
-        <li>
-          <a
-            href="pants"
-          >
-            Pants
-          </a>
-        </li>
-        <li>
-          <a
-            href="shorts"
-          >
-            Shorts
-          </a>
-        </li>
-        <li>
-          <a
-            href="underwear"
-          >
-            Underwear
-          </a>
-        </li>
-        <li>
-          <a
-            href="swimwear"
-          >
-            Swimwear
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Shop all links show up on screen 1`] = `
 <div>
   <div
     class="shop"
   >
+    <div
+      data-testid="shopping-cart"
+    />
     <div>
       <ul>
         <li>
           <a
-            href="tops"
+            href="/tops"
           >
             Tops
           </a>
         </li>
         <li>
           <a
-            href="jackets"
+            href="/jackets"
           >
             Jackets and Coats
           </a>
         </li>
         <li>
           <a
-            href="pants"
+            href="/pants"
           >
             Pants
           </a>
         </li>
         <li>
           <a
-            href="shorts"
+            href="/shorts"
           >
             Shorts
           </a>
         </li>
         <li>
           <a
-            href="underwear"
+            href="/underwear"
           >
             Underwear
           </a>
         </li>
         <li>
           <a
-            href="swimwear"
+            href="/swimwear"
           >
             Swimwear
           </a>
@@ -107,5 +55,6 @@ exports[`Shop all links show up on screen 1`] = `
       </ul>
     </div>
   </div>
+  )
 </div>
 `;

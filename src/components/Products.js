@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { useOutletContext } from "react-router-dom";
 import Product from "./Product";
 
 function Products({ categoryId, category }) {
 
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
+  const addToCart = useOutletContext();
 
   useEffect(() => {
     const options = {
@@ -38,7 +40,7 @@ function Products({ categoryId, category }) {
     let inc = 0;
     return products.map((product) => {
       inc += 1;
-      return <Product key={inc} name={product.name} imageUrl={product.imageUrl} price={product.price.current.text}/>;
+      return <Product key={inc} name={product.name} imageUrl={product.imageUrl} price={product.price.current.text} addToCart={addToCart} />;
     });
   }
 

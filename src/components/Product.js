@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Product({ name, imageUrl, price }) {
+function Product({ name, imageUrl, price, addToCart }) {
 
   const [amount, setAmount] = useState(0);
 
@@ -33,7 +33,11 @@ function Product({ name, imageUrl, price }) {
         <button className='editButton' onClick={decrementAmount}>-</button>
         <input type='number' value={amount} onChange={onChangeEvent}/>
         <button className='editButton' onClick={incrementAmount}>+</button>
-        <button className='addButton'>Add</button>
+        <button className='addButton' onClick={(e) => { 
+          e.preventDefault();
+          addToCart(name, imageUrl, price, amount); 
+          }
+        }>Add</button>
       </form>
     </div>
   );

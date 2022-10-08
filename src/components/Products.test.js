@@ -37,7 +37,7 @@ describe("Products", () => {
   it("calls fetch once with the correct URL", async () => {
     render(<Products categoryId={'7616'}/>);
     await act(async () => {
-      expect(fetch).toHaveBeenCalledWith('https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=170&categoryId=7616&limit=30&country=US&sort=freshness&currency=USD&sizeSchema=US&brand=53&lang=en-US', options);
+      expect(fetch).toHaveBeenCalledWith('https://asos2.p.rapidapi.com/products/v2/list?store=COM&offset=30&categoryId=7616&limit=30&country=GB&sort=freshness&currency=GBP&sizeSchema=US&brand=53&lang=en-GB', options);
     });
   });
 

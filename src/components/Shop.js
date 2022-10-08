@@ -1,11 +1,18 @@
 import { Outlet, Link } from 'react-router-dom';
+import { useState } from 'react';
 import Cart from './Cart';
 
 function Shop() {
 
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (name, imageUrl, price, amount) => {
+    console.log(`Added ${amount} of ${name} to cart`);
+  };
+
   return (
     <div className='shop'>
-      <Cart />
+      <Cart cart={cart} />
       <div>
         <ul>
           <li><Link to='tops'>Tops</Link></li>
@@ -16,7 +23,7 @@ function Shop() {
           <li><Link to='swimwear'>Swimwear</Link></li>
         </ul>
       </div>
-      <Outlet />
+      <Outlet context={addToCart} />
     </div>
   );
 
