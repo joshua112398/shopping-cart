@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import Product from "./Product";
 
-function Products({ categoryId }) {
+function Products({ categoryId, category }) {
 
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const options = {
@@ -16,17 +17,19 @@ function Products({ categoryId }) {
 
     const fetchProducts = async function fetchProducts() {
       try {
-        const response = await fetch(`https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=170&categoryId=${categoryId}&limit=30&country=US&sort=freshness&currency=USD&sizeSchema=US&brand=53&lang=en-US`, options)
+        setLoading(true);
+        const response = await fetch(`https://asos2.p.rapidapi.com/products/v2/list?store=COM&offset=30&categoryId=${categoryId}&limit=30&country=GB&sort=freshness&currency=GBP&sizeSchema=US&brand=53&lang=en-GB`, options)
         const data = await response.json();
         setProducts(data.products);
         console.log(data.products);
+        setLoading(false);
       } catch (error) {
         console.log(error);
       }
     };
 
     fetchProducts();
-  }, []);
+  }, [categoryId]);
 
   function getProductNames() {
     if (products.length === 0) {
@@ -39,11 +42,18 @@ function Products({ categoryId }) {
     });
   }
 
-  return (
-    <div>
-      {getProductNames()}
-    </div>
-  );
+  if (loading) {
+    return (
+      <div className='loadingScreen'>Loading...</div>
+    );
+  } else {
+    return (
+      <div>
+        <h1>{category}</h1>
+        {getProductNames()}
+      </div>
+    );
+  }
 }
 
 export default Products;
