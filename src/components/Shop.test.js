@@ -56,7 +56,29 @@ describe('Shop', () => {
     await user.click(addToCart);
 
     const cart = screen.getByTestId('shopping-cart');
-    const cartItemName = within(cart).getByRole('heading', {name: 'ProductOne'});
+    const cartItemName = within(cart).getByText('ProductOne');
+    expect(cartItemName.textContent).toBe('ProductOne');
+  });
+
+  it('removing a Product from cart makes it disappear from Cart items list', async () => {
+    render(
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Shop />}>
+            <Route path='/tops' element={<Products categoryId={7616} category={'Tops'} />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    );
+    const navButton = screen.getByRole('link', {name: 'Tops'});
+
+    const user = userEvent.setup();
+    await user.click(navButton);
+    const addToCart = await screen.findByRole('button', {name: 'Add'});
+    await user.click(addToCart);
+
+    const cart = screen.getByTestId('shopping-cart');
+    const cartItemName = within(cart).getByText('ProductOne');
     expect(cartItemName.textContent).toBe('ProductOne');
   });
 });
