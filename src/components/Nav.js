@@ -1,12 +1,18 @@
 import { Link } from 'react-router-dom';
+import '../styles/Nav.css';
 
 function Nav() {
   return (
     <nav>
-      <ul>
-        <li><Link to=''>Home</Link></li>
-        <li><Link to='shop'>Shop</Link></li>
-      </ul>
+      <div className='container'>
+        <Link to=''>
+          <h1>INVICTUS</h1>
+        </Link>
+        <ul>
+          <li><Link className='nav-link' to=''>Home</Link></li>
+          <li><Link className='nav-link' to='shop'>Shop</Link></li>
+        </ul>
+      </div>
     </nav>
   )
 }
