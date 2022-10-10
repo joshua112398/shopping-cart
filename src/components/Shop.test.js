@@ -56,8 +56,8 @@ describe('Shop', () => {
     await user.click(addToCart);
 
     const cart = screen.getByTestId('shopping-cart');
-    const cartItemName = within(cart).getByText('ProductOne');
-    expect(cartItemName.textContent).toBe('ProductOne');
+    const cartItem = within(cart).getByText('ProductOne');
+    expect(cartItem.textContent).toBe('ProductOne');
   });
 
   it('removing a Product from cart makes it disappear from Cart items list', async () => {
@@ -78,7 +78,9 @@ describe('Shop', () => {
     await user.click(addToCart);
 
     const cart = screen.getByTestId('shopping-cart');
-    const cartItemName = within(cart).getByText('ProductOne');
-    expect(cartItemName.textContent).toBe('ProductOne');
+    const removeButton = within(cart).getByText('Remove');
+    await user.click(removeButton);
+    const cartItem = within(cart).queryByText('ProductOne');
+    expect(cartItem).toBe(null);
   });
 });
