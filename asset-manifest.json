@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/static/css/main.d04dc3b5.css",
-    "main.js": "/static/js/main.0a477e95.js",
+    "main.js": "/static/js/main.087ec59c.js",
     "static/media/background-men-clothes.jpg": "/static/media/background-men-clothes.33fb1a0bfc9ad42f7252.jpg",
     "static/media/cart-svgrepo-com.svg": "/static/media/cart-svgrepo-com.13d5afd6b72658a31365afd2431511ba.svg",
     "index.html": "/index.html",
     "main.d04dc3b5.css.map": "/static/css/main.d04dc3b5.css.map",
-    "main.0a477e95.js.map": "/static/js/main.0a477e95.js.map"
+    "main.087ec59c.js.map": "/static/js/main.087ec59c.js.map"
   },
   "entrypoints": [
     "static/css/main.d04dc3b5.css",
-    "static/js/main.0a477e95.js"
+    "static/js/main.087ec59c.js"
   ]
 }
