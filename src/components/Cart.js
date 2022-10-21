@@ -1,4 +1,4 @@
-function Cart({ cart, removeFromCart }) {
+function Cart({ cart, toggleCart, showCart, removeFromCart }) {
 
   const showCartItems = () => {
     let count = 0;
@@ -8,20 +8,27 @@ function Cart({ cart, removeFromCart }) {
         <div key={count} className='cart-item'>
           <img src={`https://${item.imageUrl}`} alt={item.name}/>
           <p>{item.name}</p>
-          <p>{item.price}</p>
+          <p className='shop-price'>{item.price}</p>
           <p>Quantity: {item.amount}</p>
-          <button onClick={() => { removeFromCart(item.name); }}>Remove</button>
+          <button className='remove-button' onClick={() => { removeFromCart(item.name); }}>Remove</button>
         </div>
       );
     })
   };
 
-  return (
-    <div data-testid='shopping-cart'>
-      <h1>Your Cart</h1>
-      {showCartItems()}
-    </div>
-  );
+  if (showCart) {
+    return (
+      <div className='cart-modal'>
+        <div data-testid='shopping-cart' className='cart'>
+          <button className='hideButton' onClick={toggleCart}> X</button>
+          <h1>Your Cart</h1>
+          <div className='cart-items'>{showCartItems()}</div>
+        </div>
+      </div>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default Cart;

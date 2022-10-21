@@ -5,7 +5,7 @@ function Product({ name, imageUrl, price, addToCart }) {
   const [amount, setAmount] = useState(0);
 
   const onChangeEvent = (e) => {
-    setAmount(e.target.value);
+    setAmount(parseInt(e.target.value));
   };
 
   const decrementAmount = (e) => {
@@ -28,16 +28,16 @@ function Product({ name, imageUrl, price, addToCart }) {
     <div className='product'>
       <img alt={name} src={`https://${imageUrl}`} />
       <h3>{name}</h3>
-      <p>{price}</p>
+      <p className='shop-price'>{price}</p>
       <form>
         <button className='editButton' onClick={decrementAmount}>-</button>
-        <input type='number' value={amount} onChange={onChangeEvent}/>
+        <input className='amount-input' type='number' value={amount} onChange={onChangeEvent}/>
         <button className='editButton' onClick={incrementAmount}>+</button>
         <button className='addButton' onClick={(e) => { 
           e.preventDefault();
           addToCart(name, imageUrl, price, amount); 
           }
-        }>Add</button>
+        }>Add to Cart</button>
       </form>
     </div>
   );

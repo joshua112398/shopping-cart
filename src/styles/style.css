@@ -1,0 +1,294 @@
+:root {
+  --accent-color: rgb(0, 0, 0);
+  --container-width: 1400px;
+  font-family: 'Lexend Deca', sans-serif;
+}
+
+body, html {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: black;
+}
+
+main .container {
+  background-image:  linear-gradient(to right, rgba(0,0,0, 0) 20%,rgba(0,0,0, 1) 100%), linear-gradient(to left, rgba(0,0,0, 0) 20%,rgba(0,0,0, 1) 100%), 
+  url('../images/background-men-clothes.jpg');
+  background-color: black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 100%;
+  text-align: left;
+  width: var(--container-width);
+  margin: 0px 80px;
+}
+
+h1 {
+  margin: 0;
+}
+
+.hero {
+  padding: 150px 120px;
+  font-size: 2.5rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  text-align: center;
+  align-items: center;
+}
+
+.hero p {
+  font-size: 1.4rem;
+}
+
+.large-button {
+  background-color: rgba(255, 255, 255, 0);
+  outline: 2px solid white;
+  border: 1px solid rgba(255, 255, 255, 0);
+  color: white;
+  width: min-content;
+  font-size: 1.2rem;
+  padding: 10px 40px;
+}
+
+.large-button:hover {
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 100%;
+  z-index: 2;
+  border-bottom: 1px solid var(--accent-color);
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 120px;
+  width: var(--container-width);
+}
+
+
+nav .container ul {
+  display: flex;
+  width: 200px;
+  justify-content: space-around;
+}
+
+a {
+  text-decoration: none;
+}
+
+nav a {
+  color: black;
+}
+
+nav .nav-link {
+  padding: 10px 20px;
+}
+
+nav .nav-link:hover {
+  border-bottom: 2px solid black;
+}
+
+.cart-modal {
+  position: fixed;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.486);
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.cart {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  z-index: 1;
+  bottom: 0px;
+  right: 0px;
+  height: 70%;
+  width: 300px;
+  text-align: center;
+  padding: 40px;
+  overflow: scroll;
+}
+
+.cart img {
+  width: 100px;
+}
+
+.cart-button {
+  position: fixed;
+  left: 30px;
+  bottom: 30px;
+  background-color: black;
+  color: black;
+  border: none;
+  outline: 1px solid var(--accent-color);
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+}
+
+.cart-button:hover {
+  cursor: pointer;
+  background-color: rgb(63, 63, 63);
+}
+
+.cart-button img{
+  width: 40px;
+  display: block;
+  margin: auto;
+}
+
+.cart-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+  border-bottom: 1px solid rgb(187, 187, 187);
+}
+
+.filter-white{
+  filter: invert(100%) sepia(0%) saturate(7489%) hue-rotate(344deg) brightness(105%) contrast(104%);
+}
+
+.shop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.shop .container {
+  width: var(--container-width);
+  display: flex;
+  justify-content: center;
+  height: 100%;
+}
+
+.shop-nav {
+  width: 100%;
+  padding: 5px;
+}
+
+.shop-nav, .shop-nav a {
+  background-color: black;
+  color: white;
+}
+
+.shop-nav a:hover {
+  border-bottom: 1px solid white;
+  box-sizing: border-box;
+}
+
+.shop-nav ul {
+  display: flex;
+  justify-content: center;
+  width: 1000px;
+  margin: auto;
+}
+
+.shop-nav li {
+  padding: 0px 20px;
+}
+
+.shop .products {
+  flex: 0 1 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 350px);
+}
+
+.shop .products h1 {
+  grid-column: 1 / 5;
+  padding: 30px 10px;
+}
+
+.loadingScreen {
+  align-self: center;
+}
+
+.shop .product {
+  padding: 0px 10px 30px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.shop .product img {
+  width: 325px;
+}
+
+.shop-price {
+  margin-top: auto;
+  font-weight: bold;
+}
+
+.product form {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.editButton, .hideButton {
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  width: 20px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.hideButton {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 30px;
+}
+
+.addButton, .remove-button {
+  background-color: black;
+  color: white;
+  outline: none;
+  border: none;
+  height: 30px;
+  border-radius: 5px;
+}
+
+button:hover {
+  cursor: pointer;
+  outline: 2px solid black;
+}
+
+.amount-input {
+  border: 1px solid black;
+  width: 50px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

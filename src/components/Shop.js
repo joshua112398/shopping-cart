@@ -1,10 +1,12 @@
 import { Outlet, Link } from 'react-router-dom';
 import { useState } from 'react';
 import Cart from './Cart';
+import cartImage from '../images/cart-svgrepo-com.svg';
 
 function Shop() {
 
   const [cart, setCart] = useState([]);
+  const [showCart, setShowCart] = useState(false);
 
   const addToCart = (name, imageUrl, price, amount) => {
     console.log('adding to cart');
@@ -47,20 +49,31 @@ function Shop() {
     });
   };
 
+  const toggleCart = () => {
+    console.log('Toggling Cart');
+    setShowCart((showCart) => {
+      console.log(!showCart);
+      return !showCart;
+    });
+  };
+
   return (
     <div className='shop'>
-      <Cart cart={cart} removeFromCart={removeFromCart} />
-      <div>
+      <button className='cart-button' onClick={toggleCart}><img className='filter-white' src={cartImage} alt='cart'/></button>
+      <Cart cart={cart} toggleCart={toggleCart} showCart={showCart} removeFromCart={removeFromCart} />
+      <div className='shop-nav'>
         <ul>
-          <li><Link to='tops'>Tops</Link></li>
-          <li><Link to='jackets'>Jackets and Coats</Link></li>
-          <li><Link to='pants'>Pants</Link></li>
-          <li><Link to='shorts'>Shorts</Link></li>
-          <li><Link to='underwear'>Underwear</Link></li>
-          <li><Link to='swimwear'>Swimwear</Link></li>
+          <li><Link to='tops'>TOPS</Link></li>
+          <li><Link to='jackets'>JACKETS</Link></li>
+          <li><Link to='pants'>PANTS</Link></li>
+          <li><Link to='shorts'>SHORTS</Link></li>
+          <li><Link to='underwear'>UNDERWEAR</Link></li>
+          <li><Link to='swimwear'>SWIMWEAR</Link></li>
         </ul>
       </div>
-      <Outlet context={addToCart} />
+      <div className='container'>
+        <Outlet context={addToCart} />
+      </div>
     </div>
   );
 

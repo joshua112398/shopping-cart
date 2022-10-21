@@ -1,17 +1,19 @@
 import { BrowserRouter, Routes, Route, } from 'react-router-dom';
+import './styles/style.css';
 import Home from './components/Home';
 import Nav from './components/Nav';
 import Shop from './components/Shop';
 import Products from './components/Products';
-import Product from './components/Product';
+
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/shopping-cart'>
       <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/shop' element={<Shop />}> 
+          <Route index element={<Products categoryId={7616} category={'Tops'} />} />
           <Route path='/shop/tops' element={<Products categoryId={7616} category={'Tops'} />} />
           <Route path='/shop/jackets' element={<Products categoryId={3606} category={'Jackets'} />} />
           <Route path='/shop/pants' element={<Products categoryId={4910} category={'Pants'} />} />

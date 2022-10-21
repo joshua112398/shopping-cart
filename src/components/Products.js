@@ -50,7 +50,7 @@ function Products({ categoryId, category }) {
     );
   } else {
     return (
-      <div>
+      <div className='products'>
         <h1>{category}</h1>
         {getProductNames()}
       </div>
