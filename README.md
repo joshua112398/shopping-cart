@@ -12,6 +12,8 @@ A website displaying men's clothing products and allowing users to add items to 
 
 # Issues
 
+This was the first project where I had to make extensive use of mocking. Since I'm fetching from an API, I didn't want to wait for the fetch to resolve for every test. Hence, I mocked the fetch function to make it return the same object right away. 
+
 I was confused on how to test the Products component, especially the fact that it's asynchronous due to
 needing to fetch data from an API. ESlint would throw out a warning about unnecessary act(...), and hence
 I had to resort to using Async RTL methods like waitFor and findBy* to solve the issue. 

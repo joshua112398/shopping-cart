@@ -8,7 +8,7 @@ import Products from './components/Products';
 
 function App() {
   return (
-    <BrowserRouter basename='/shopping-cart'>
+    <BrowserRouter basename='/'>
       <Nav />
       <Routes>
         <Route path='/' element={<Home />} />
