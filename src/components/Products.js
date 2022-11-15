@@ -9,6 +9,7 @@ function Products({ categoryId, category }) {
   const addToCart = useOutletContext();
 
   useEffect(() => {
+    // Headers and method properties used for API fetching
     const options = {
       method: 'GET',
       headers: {
@@ -17,6 +18,7 @@ function Products({ categoryId, category }) {
       }
     };
 
+    // Fetches products pertaining to the category ID from external API
     const fetchProducts = async function fetchProducts() {
       try {
         setLoading(true);
@@ -33,6 +35,7 @@ function Products({ categoryId, category }) {
     fetchProducts();
   }, [categoryId]);
 
+  // Returns components for each product and its information
   function getProductNames() {
     if (products.length === 0) {
       return null;

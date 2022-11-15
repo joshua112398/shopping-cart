@@ -1,6 +1,6 @@
 :root {
   --accent-color: rgb(0, 0, 0);
-  --container-width: 1400px;
+  --container-width: 1100px;
   font-family: 'Lexend Deca', sans-serif;
 }
 
@@ -175,14 +175,14 @@ nav .nav-link:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  min-width: 0;
 }
 
 .shop .container {
-  width: var(--container-width);
+  max-width: var(--container-width);
   display: flex;
   justify-content: center;
-  height: 100%;
+  min-width: 0;
 }
 
 .shop-nav {
@@ -212,10 +212,10 @@ nav .nav-link:hover {
 }
 
 .shop .products {
-  flex: 0 1 auto;
-  width: 100%;
+  flex: 1 1 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 350px);
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  width: 100%;
 }
 
 .shop .products h1 {

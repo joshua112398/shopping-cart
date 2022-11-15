@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function Product({ name, imageUrl, price, addToCart }) {
 
+  // contains the currently inputted amount next to the Add to Cart button
   const [amount, setAmount] = useState(0);
 
   const onChangeEvent = (e) => {
@@ -35,7 +36,9 @@ function Product({ name, imageUrl, price, addToCart }) {
         <button className='editButton' onClick={incrementAmount}>+</button>
         <button className='addButton' onClick={(e) => { 
           e.preventDefault();
-          addToCart(name, imageUrl, price, amount); 
+          if (amount > 0) {
+            addToCart(name, imageUrl, price, amount); 
+          }
           }
         }>Add to Cart</button>
       </form>
