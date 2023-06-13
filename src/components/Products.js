@@ -55,7 +55,9 @@ function Products({ categoryId, category }) {
     return (
       <div className='products'>
         <h1>{category}</h1>
-        {getProductNames()}
+        <div className='productsGrid'>
+          {getProductNames()}
+        </div>
       </div>
     );
   }

@@ -81,15 +81,15 @@ nav .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 120px;
+  padding: 40px 10px;
   width: var(--container-width);
 }
 
 
 nav .container ul {
   display: flex;
-  width: 200px;
-  justify-content: space-around;
+  width: auto;
+  gap: 30px;
 }
 
 a {
@@ -98,10 +98,11 @@ a {
 
 nav a {
   color: black;
+  padding: 0px 10px;
 }
 
 nav .nav-link {
-  padding: 10px 20px;
+  padding: 10px 10px;
 }
 
 nav .nav-link:hover {
@@ -113,13 +114,13 @@ nav .nav-link:hover {
   top: 0px;
   background-color: rgba(0, 0, 0, 0.486);
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   z-index: 1;
 }
 
 .cart {
   background-color: rgb(255, 255, 255);
-  position: fixed;
+  position: absolute;
   z-index: 1;
   bottom: 0px;
   right: 0px;
@@ -180,6 +181,7 @@ nav .nav-link:hover {
 
 .shop .container {
   max-width: var(--container-width);
+  width: 100%;
   display: flex;
   justify-content: center;
   min-width: 0;
@@ -202,8 +204,9 @@ nav .nav-link:hover {
 
 .shop-nav ul {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  width: 1000px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -212,6 +215,12 @@ nav .nav-link:hover {
 }
 
 .shop .products {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.shop .products .productsGrid {
   flex: 1 1 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -225,12 +234,14 @@ nav .nav-link:hover {
 
 .loadingScreen {
   align-self: center;
+  margin-top: 100px;
 }
 
 .shop .product {
   padding: 0px 10px 30px 10px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
 }
 
